@@ -102,12 +102,6 @@ border-radius:10px;
 
 	color: rgb(58, 58, 58)
 }
-QComboBox::selected:item{
-selection-border-style:solid;
-}
-QComboBox::item{
-border-style:none;
-}
 QRadioButton{
 	color: rgb(58, 58, 58)
 }
