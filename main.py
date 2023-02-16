@@ -21,11 +21,7 @@ class MainWindow():
         loader = QUiLoader()
         self.bookAdd = loader.load(ui_file)
         ####
-        self.books = []
-        self.pubs = []
-        self.cates = []
-        self.gros = []
-        ####
+        self.pgs()
         self.HomeBtn()
         self.bookAddWin()
         ####
@@ -34,6 +30,17 @@ class MainWindow():
 
     def HomeBtn(self):
         self.mainWindow.addBook.clicked.connect(self.bookAdd.show)
+
+    def pgc(self):
+        self.pubs = {}
+        self.cats = {}
+        self.groups = {}
+        for i in os.listdir('LibraryAppBooks'):
+            book = read(i)
+            self.pubs[book['publisher']] = [book['number']]+self.pubs.get(book['publisher'],[])
+            self.cats[book['category']] = [book['number']]+self.cats.get(book['category'],[])
+            self.groups[book['gtoup']] = [book['number']]+self.groups.get(book['gtoup'],[])
+
 
     def bookAddWin(self):
         if not('LibraryAppBooks' in os.listdir()):
@@ -66,7 +73,9 @@ class MainWindow():
                     self.bookAdd.staryes.isChecked(),
                     self.bookAdd.additional.toPlainText(),self.bookAdd.cate.currentText(),
                     self.bookAdd.group.currentText(),self.bookAdd.publisher.currentText())   
-                    self.books += [book]
+                    self.pubs[self.bookAdd.publisher.currentText()] = [self.bookAdd.number.text()]+self.pubs.get(self.bookAdd.publisher.currentText(),[])
+                    self.cats[self.bookAdd.cate.currentText()] = [self.bookAdd.number.text()]+self.cats.get(self.bookAdd.cate.currentText(),[])
+                    self.groups[self.bookAdd.group.currentText()] = [self.bookAdd.number.text()]+self.groups.get(self.bookAdd.group.currentText(),[])
                     msg = QMessageBox()
                     msg.setIcon(QMessageBox.Information)
                     msg.setText('seccessfully added book')

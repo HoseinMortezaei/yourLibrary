@@ -1,5 +1,5 @@
 def read(number):
-    file = open(f'{number}.blf')
+    file = open(f'{number}')
     lines = file.read().splitlines()
     book = eval(lines[2:3])
     return book
