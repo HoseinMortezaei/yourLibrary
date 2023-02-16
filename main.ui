@@ -226,49 +226,13 @@ border-radius:10px;
             <string>Categories</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="aboutUs">
-           <property name="geometry">
-            <rect>
-             <x>205</x>
-             <y>480</y>
-             <width>200</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>About us</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="setting">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>480</y>
-             <width>200</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Setting</string>
-           </property>
-          </widget>
           <widget class="QLabel" name="label">
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>250</y>
+             <y>320</y>
              <width>401</width>
-             <height>221</height>
+             <height>211</height>
             </rect>
            </property>
            <property name="text">
@@ -282,7 +246,7 @@ border-radius:10px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>240</y>
+             <y>300</y>
              <width>401</width>
              <height>16</height>
             </rect>
@@ -295,13 +259,31 @@ border-radius:10px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>460</y>
+             <y>520</y>
              <width>401</width>
              <height>16</height>
             </rect>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="publishers">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>240</y>
+             <width>405</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Publishers</string>
            </property>
           </widget>
          </widget>

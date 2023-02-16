@@ -8,4 +8,4 @@ def write(name,writer,number,year,star,additional,category,group,publisher):
     x = {'name':name,'writer':writer,'number':number,'year':year,'star':star,'additional':additional,'category':category,'group':group,'publisher':publisher}
     file.write(f'v1.0\n--begin--\n{str(x)}\n--end--')
     file.close()
-    return True
+    return x

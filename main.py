@@ -6,6 +6,9 @@ from PySide2.QtGui import QIcon
 from fileProc import read,write
 import os
 
+# for i in os.listdir('LibraryAppBooks'):
+#     books += []
+
 class MainWindow():
     def __init__(self):
         ui_file = QFile("main.ui")
@@ -17,6 +20,11 @@ class MainWindow():
         ui_file.open(QFile.ReadOnly)
         loader = QUiLoader()
         self.bookAdd = loader.load(ui_file)
+        ####
+        self.books = []
+        self.pubs = []
+        self.cates = []
+        self.gros = []
         ####
         self.HomeBtn()
         self.bookAddWin()
@@ -33,7 +41,6 @@ class MainWindow():
         def okClicked():
             x = self.bookAdd.number.text()
             if f'{x}.blf' in os.listdir("LibraryAppBooks"):
-                #book with this number is already exist message
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Critical)
                 msg.setText('Book with this "number" is already exist')
@@ -53,38 +60,32 @@ class MainWindow():
                     msg.setStandardButtons(QMessageBox.Ok)
                     msg.show()
                     msg.exec_()    
-                else:                
-                    if not (write(self.bookAdd.name.text(),self.bookAdd.writer.text(),self.bookAdd.number.text(),self.bookAdd.year.text(),self.bookAdd.staryes.isChecked(),self.bookAdd.additional.toPlainText(),self.bookAdd.cate.currentText(),self.bookAdd.group.currentText(),self.bookAdd.publisher.currentText())):
-                        msg = QMessageBox()
-                        msg.setIcon(QMessageBox.Critical)
-                        msg.setText('Something went wrong')
-                        msg.setWindowTitle('ERROR adding book')
-                        msg.setWindowIcon(QIcon('icon.png'))
-                        msg.setStandardButtons(QMessageBox.Ok)
-                        msg.show()
-                        msg.exec_()
-                        pass                    
-                    else:
-                        # successfully added book message
-                        msg = QMessageBox()
-                        msg.setIcon(QMessageBox.Information)
-                        msg.setText('seccessfully added book')
-                        msg.setWindowTitle('successful')
-                        msg.setWindowIcon(QIcon('icon.png'))
-                        msg.setStandardButtons(QMessageBox.Ok)
-                        msg.show()
-                        msg.exec_()
-                        self.bookAdd.name.setText('')
-                        self.bookAdd.writer.setText('')
-                        self.bookAdd.year.setText('')
-                        self.bookAdd.number.setText('')
-                        self.bookAdd.close()
-                        self.bookAdd.starno.setChecked(True)
-                        self.bookAdd.additional.setPlainText('')
-                        self.bookAdd.cate.setCurrentIndex(0)
-                        self.bookAdd.group.setCurrentIndex(0)
-                        self.bookAdd.publisher.setCurrentIndex(0)
-                        self.bookAdd.close()
+                else:                        
+                    book =  write(self.bookAdd.name.text(),self.bookAdd.writer.text(),
+                    self.bookAdd.number.text(),self.bookAdd.year.text(),
+                    self.bookAdd.staryes.isChecked(),
+                    self.bookAdd.additional.toPlainText(),self.bookAdd.cate.currentText(),
+                    self.bookAdd.group.currentText(),self.bookAdd.publisher.currentText())   
+                    self.books += [book]
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText('seccessfully added book')
+                    msg.setWindowTitle('successful')
+                    msg.setWindowIcon(QIcon('icon.png'))
+                    msg.setStandardButtons(QMessageBox.Ok)
+                    msg.show()
+                    msg.exec_()
+                    self.bookAdd.name.setText('')
+                    self.bookAdd.writer.setText('')
+                    self.bookAdd.year.setText('')
+                    self.bookAdd.number.setText('')
+                    self.bookAdd.close()
+                    self.bookAdd.starno.setChecked(True)
+                    self.bookAdd.additional.setPlainText('')
+                    self.bookAdd.cate.setCurrentIndex(0)
+                    self.bookAdd.group.setCurrentIndex(0)
+                    self.bookAdd.publisher.setCurrentIndex(0)
+                    self.bookAdd.close()
         self.bookAdd.ok.clicked.connect(okClicked)
         self.bookAdd.discard.clicked.connect(self.bookAdd.close)
 
