@@ -115,7 +115,7 @@ QRadioButton{
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Name:</string>
+         <string>* Name:</string>
         </property>
        </widget>
       </item>
@@ -145,7 +145,7 @@ QRadioButton{
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Writer:</string>
+         <string>* Writer:</string>
         </property>
        </widget>
       </item>
@@ -175,7 +175,7 @@ QRadioButton{
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Number:</string>
+         <string>* Number:</string>
         </property>
        </widget>
       </item>
@@ -205,7 +205,7 @@ QRadioButton{
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Year:</string>
+         <string>* Year:</string>
         </property>
        </widget>
       </item>
