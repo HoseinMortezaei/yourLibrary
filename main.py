@@ -3,7 +3,7 @@ from PySide2.QtWidgets import QApplication, QMainWindow,QMessageBox
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QIcon
-from fileProc import read,write
+import fileProc
 import os
 
 # for i in os.listdir('LibraryAppBooks'):
@@ -33,13 +33,24 @@ class MainWindow():
 
     def pgc(self):
         self.pubs = {}
-        self.cats = {}
+        if not('Pubs' in os.listdir()):
+            os.mkdir('Pubs')
+        else:
+            for i in os.listdir('Pubs'):
+                self.pubs[i] = fileProc.readP(i)
+        self.cats= {}
+        if not('Cats' in os.listdir()):
+            os.mkdir('Cats')
+        else:
+            for i in os.listdir('Cats'):
+                self.cats[i] = fileProc.readC(i)           
         self.groups = {}
-        for i in os.listdir('LibraryAppBooks'):
-            book = read(i)
-            self.pubs[book['publisher']] = [book['number']]+self.pubs.get(book['publisher'],[])
-            self.cats[book['category']] = [book['number']]+self.cats.get(book['category'],[])
-            self.groups[book['gtoup']] = [book['number']]+self.groups.get(book['gtoup'],[])
+        if not('Groups' in os.listdir()):
+            os.mkdir('Groups')
+        else:
+            for i in os.listdir('Groups'):
+                self.groups[i] = fileProc.readG(i)
+
 
 
     def bookAddWin(self):
@@ -68,14 +79,19 @@ class MainWindow():
                     msg.show()
                     msg.exec_()    
                 else:                        
-                    book =  write(self.bookAdd.name.text(),self.bookAdd.writer.text(),
+                    book =  fileProc.write(self.bookAdd.name.text(),self.bookAdd.writer.text(),
                     self.bookAdd.number.text(),self.bookAdd.year.text(),
                     self.bookAdd.staryes.isChecked(),
                     self.bookAdd.additional.toPlainText(),self.bookAdd.cate.currentText(),
                     self.bookAdd.group.currentText(),self.bookAdd.publisher.currentText())   
+
                     self.pubs[self.bookAdd.publisher.currentText()] = [self.bookAdd.number.text()]+self.pubs.get(self.bookAdd.publisher.currentText(),[])
+                    fileProc.writeP(self.bookAdd.publisher.currentText(),self.bookAdd.number.text())
                     self.cats[self.bookAdd.cate.currentText()] = [self.bookAdd.number.text()]+self.cats.get(self.bookAdd.cate.currentText(),[])
+                    fileProc.writeC(self.bookAdd.cate.currentText(),self.bookAdd.number.text())
                     self.groups[self.bookAdd.group.currentText()] = [self.bookAdd.number.text()]+self.groups.get(self.bookAdd.group.currentText(),[])
+                    fileProc.writeG(self.bookAdd.group.currentText(),self.bookAdd.number.text())
+                    
                     msg = QMessageBox()
                     msg.setIcon(QMessageBox.Information)
                     msg.setText('seccessfully added book')
@@ -84,6 +100,7 @@ class MainWindow():
                     msg.setStandardButtons(QMessageBox.Ok)
                     msg.show()
                     msg.exec_()
+                    
                     self.bookAdd.name.setText('')
                     self.bookAdd.writer.setText('')
                     self.bookAdd.year.setText('')
@@ -95,6 +112,7 @@ class MainWindow():
                     self.bookAdd.group.setCurrentIndex(0)
                     self.bookAdd.publisher.setCurrentIndex(0)
                     self.bookAdd.close()
+        
         self.bookAdd.ok.clicked.connect(okClicked)
         self.bookAdd.discard.clicked.connect(self.bookAdd.close)
 

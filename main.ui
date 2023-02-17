@@ -30,7 +30,28 @@
     <normaloff>icon.png</normaloff>icon.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QScrollBar:vertical {
+    width: 17px;
+}
+QScrollBar::handle:vertical{
+	background-color: rgb(226, 226, 226);
+border-radius:5px;
+border:1px solid  rgb(202,202,202);
+}
+QScrollBar::add-line:vertical {
+border-width:3px;
+border-style:colid;
+border-color:green;
+	background-color: rgb(202, 202, 202);
+
+}
+QScrollBar::sub-line:vertical {
+border-width:3px;
+border-style:colid;
+border-color:green;
+	background-color: rgb(202, 202, 202);
+
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -127,7 +148,7 @@ border-radius:10px;
 </string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Home">
        <property name="styleSheet">
@@ -457,7 +478,7 @@ border-radius:10px;
            <property name="styleSheet">
             <string notr="true">QWidget{
 	background-color: rgb(240, 240, 240);
-border-radius:15px;
+
 border-style:solid;
 border-width:1px;
 border-color:rgb(197, 197, 197);
@@ -518,129 +539,13 @@ QLabel{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>386</width>
-              <height>570</height>
+              <width>403</width>
+              <height>393</height>
              </rect>
             </property>
             <layout class="QFormLayout" name="formLayout">
              <item row="0" column="0">
               <widget class="QPushButton" name="addbook">
-               <property name="minimumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                 <weight>50</weight>
-                 <italic>false</italic>
-                 <bold>false</bold>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="text">
-                <string>add book +</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="addbook_2">
-               <property name="minimumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                 <weight>50</weight>
-                 <italic>false</italic>
-                 <bold>false</bold>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="text">
-                <string>add book +</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QPushButton" name="addbook_3">
-               <property name="minimumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                 <weight>50</weight>
-                 <italic>false</italic>
-                 <bold>false</bold>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="text">
-                <string>add book +</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="addbook_4">
-               <property name="minimumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>180</width>
-                 <height>180</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                 <weight>50</weight>
-                 <italic>false</italic>
-                 <bold>false</bold>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="text">
-                <string>add book +</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QPushButton" name="addbook_5">
                <property name="minimumSize">
                 <size>
                  <width>180</width>

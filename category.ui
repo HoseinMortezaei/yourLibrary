@@ -6,133 +6,108 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>528</width>
-    <height>503</height>
+    <width>300</width>
+    <height>450</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>450</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>300</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">
+QPushButton{
+	background-color: rgb(226, 226, 226);
+	border-radius: 10px;
+border-style: solid;
+border-width:2px;
+	border-color: rgb(202, 202, 202);
+	color: rgb(58, 58, 58);
+}
+
+QPushButton::hover{
+	background-color: rgb(200, 200, 200);
+border-color:rgb(170,170,170);
+}
+QLabel{
+	color: rgb(97, 97, 97);
+}
+
+QScrollBar:vertical {
+    width: 17px;
+}
+QScrollBar::handle:vertical{
+	background-color: rgb(226, 226, 226);
+border-radius:5px;
+border:1px solid  rgb(202,202,202);
+}
+QScrollBar::add-line:vertical {
+border-width:3px;
+border-style:colid;
+	background-color: rgb(202, 202, 202);
+
+}
+QScrollBar::sub-line:vertical {
+border-width:3px;
+border-style:colid;
+border-color:green;
+	background-color: rgb(202, 202, 202);
+
+}
+QWidget{
+	background-color: rgb(240, 240, 240);
+
+}
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	background-color: rgb(226, 226, 226);
-	border-radius: 10px;
-border-style: solid;
-border-width:2px;
-	border-color: rgb(202, 202, 202);
-	color: rgb(58, 58, 58);
-}
-
-QPushButton::hover{
-	background-color: rgb(200, 200, 200);
-border-color:rgb(170,170,170);
-}
-QLabel{
-	color: rgb(97, 97, 97);
-}
-QWidget{
-	background-color: rgb(240, 240, 240);
-border-radius:15px;
-border-style:solid;
-border-width:1px;
-border-color:rgb(197, 197, 197);
-}
-QPushButton{
-;
-	background-color: rgb(226, 226, 226);
-	border-radius: 10px;
-border-style: solid;
-border-width:2px;
-	border-color: rgb(202, 202, 202);
-	color: rgb(58, 58, 58);
-}
-
-QLineEdit{
-border-radius:10px;
-border-width:2px;
-	border-color: rgb(202, 202, 202);
-border-style: solid;
-	color: rgb(97, 97, 97);
-}
-QPushButton::hover{
-	background-color: rgb(200, 200, 200);
-border-color:rgb(170,170,170);
-}
-QComboBox{
-border-radius:10px;
-border-width:2px;
-	border-color: rgb(202, 202, 202);
-border-style: solid;
-	background-color: rgb(234, 234, 234);
-	color: rgb(58, 58, 58);
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-
-    border-left-width: 2px;
-	border-color: rgb(202, 202, 202);
-    border-left-style: solid;
-    border-top-right-radius: 3px; 
-    border-bottom-right-radius: 3px;
-}
-QComboBox::down-arrow{
-image:url(darr.png);
-}
-QLabel{
-	color: rgb(97, 97, 97);
-}
-</string>
-     </property>
      <property name="widgetResizable">
       <bool>true</bool>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
      <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>508</width>
-        <height>483</height>
+        <width>280</width>
+        <height>430</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QPushButton" name="addbook">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton">
          <property name="minimumSize">
           <size>
-           <width>180</width>
-           <height>180</height>
+           <width>250</width>
+           <height>60</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>180</width>
-           <height>180</height>
+           <width>12374654</width>
+           <height>60</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
-           <strikeout>false</strikeout>
-           <kerning>true</kerning>
+           <pointsize>13</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>add category +</string>
+          <string>Add Category +</string>
          </property>
         </widget>
        </item>
